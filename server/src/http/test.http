@@ -1,0 +1,23 @@
+GET http://localhost:5000/launches/ HTTP/1.1
+
+###
+
+GET http://localhost:5000/planets HTTP/1.1
+
+###
+GET http://localhost:5000/ HTTP/1.1
+
+###
+POST http://localhost:5000/launches/
+content-type: application/json
+
+{
+  "mission": "sample",
+  "rocket": "Wed, 21 Oct 2015 18:27:50 GMT",
+  "launchDate": "21 Oct 2015",
+  "target": "aaaaaa"
+}
+
+
+###
+DELETE http://localhost:5000/launches/10 HTTP/1.1
