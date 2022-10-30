@@ -1,4 +1,4 @@
-<img src="logo.png" alt="Logo of the project" width="100" height="100">
+
 
 # Nasa Mission Control [[Live Deployment]](https://nasa-mission-control-application.azurewebsites.net)
 
