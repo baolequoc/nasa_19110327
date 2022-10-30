@@ -1,6 +1,6 @@
 
 
-# Nasa Mission Control [[Live Deployment]](https://nasa-mission-control-application.azurewebsites.net)
+# Nasa Mission Control
 
 > A Mission Control Dashboard built with React and NodeJS.
 
