@@ -16,7 +16,7 @@ jobs:
       - run:
           name: Run unit tests on Circle
           command: |
-            npm run test
+            cd sever && npm run test
 workflows:
   build_tests:
     jobs:
