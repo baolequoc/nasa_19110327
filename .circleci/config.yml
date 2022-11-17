@@ -3,7 +3,7 @@ version: 2.1
 
 jobs:
   run_tests:
-    working_directory: ~/server
+    working_directory: ~/nasa_19110327/server
     docker:
       - image: circleci/node:16.13.1
     steps:
