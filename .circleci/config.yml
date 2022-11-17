@@ -10,6 +10,7 @@ jobs:
       - run:
           name: Install  npm dependencies
           command: |
+            cd server
             npm install --save
       - run:
           name: Run unit tests on Circle
