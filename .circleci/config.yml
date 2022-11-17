@@ -9,6 +9,7 @@ jobs:
     steps:
       - checkout
       - run: pwd
+      - run: ls
       - run:
           name: Install  npm dependencies
           command: |
