@@ -7,13 +7,12 @@ jobs:
     docker:
       - image: circleci/node:16.13.1
     steps:
-      - checkout:
-        path: ~/nasa_19110327/server
+      - checkout
       - run: ls
       - run:
           name: Install  npm dependencies
           command: |
-            npm install --save
+            cd server && npm install --save
       - run:
           name: Run unit tests on Circle
           command: |
