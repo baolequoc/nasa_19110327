@@ -3,6 +3,7 @@ version: 2.1
 
 jobs:
   run_tests:
+    working_directory: ~/server
     docker:
       - image: circleci/node:16.13.1
     steps:
@@ -10,12 +11,10 @@ jobs:
       - run:
           name: Install  npm dependencies
           command: |
-            cd server
             npm install --save
       - run:
           name: Run unit tests on Circle
           command: |
-            cd server |
             npm run test
 workflows:
   build_tests:
