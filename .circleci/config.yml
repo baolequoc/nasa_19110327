@@ -26,7 +26,7 @@ jobs:
       - run:
           name: Create database
           command: |
-              mongo localhost --eval "use(nasa) && db.createUser( { user: "baodeptrai", pwd: "123456", roles: ["readWrite"] });"
+              mongo localhost --eval 'use(nasa)'
       - run:
           name: Install  npm dependencies
           command: |
