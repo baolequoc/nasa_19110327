@@ -24,11 +24,9 @@ jobs:
           name: Waiting for Mongo
           command: dockerize -wait tcp://localhost:27017 -timeout 1m
       - run:
-          name: Get versions
+          name: Create database
           command: |
-              mongo \
-              use(nasa) \
-              db.createUser( { user: "baodeptrai", pwd: "123456", roles: ["readWrite"] });
+              mongo localhost --eval "use(nasa) && db.createUser( { user: "baodeptrai", pwd: "123456", roles: ["readWrite"] });"
       - run:
           name: Install  npm dependencies
           command: |
