@@ -31,6 +31,8 @@ mongoose.Promise = global.Promise;
 mongoose.connect(mongoUrl, { useNewUrlParser: true })
   .then(() => {
     console.log('Connected MongoDB');
+    console.log('Connected succcessfully');
+    
   })
   .catch((err) => console.log(err));
 
