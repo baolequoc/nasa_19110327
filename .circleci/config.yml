@@ -11,6 +11,7 @@ jobs:
           MONGO_USERNAME: baodeptrai
           MONGO_PASSWORD: 123456
     steps:
+      - checkout
       - run:
           name: MongoDB Install
           command: |
@@ -22,17 +23,12 @@ jobs:
       - run:
           name: Waiting for Mongo
           command: dockerize -wait tcp://localhost:27017 -timeout 1m
-      - checkout
       - run:
           name: Get versions
           command: |
-              node -v
-              npm -v
-              mongo -v
-              mongo localhost --eval "db.version()"
-              mongo
-              use(nasa)
-              db.createUser( { user: "baodeptrai", pwd: "123456", roles: ["readWrite"] })
+              mongo \
+              use(nasa) \
+              db.createUser( { user: "baodeptrai", pwd: "123456", roles: ["readWrite"] });
       - run:
           name: Install  npm dependencies
           command: |
