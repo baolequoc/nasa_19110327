@@ -26,7 +26,7 @@ jobs:
       - run:
           name: Create database
           command: |
-              mongo --eval "db.auth('baodeptrai', '123456'); db = db.getSiblingDB('nasa'); db.createUser({ user: 'baodeptrai', pwd: '123456', roles: [{ role: 'readWrite', db: 'nasa' }] });"
+              mongo --eval "db = db.getSiblingDB('nasa'); db.user.insertMany([{ hello : 'world'}]); db.createUser({ user: 'baodeptrai', pwd: '123456', roles: [{ role: 'readWrite', db: 'nasa' }] });"
       - run:
           name: Install  npm dependencies
           command: |
