@@ -25,7 +25,6 @@ async function startServer() {
 
 // // eslint-disable-next-line import/no-dynamic-require
 const { mongoUrl } = require('../mongo_config')
-console.log(mongoUrl);
 
 // setup mongo
 mongoose.Promise = global.Promise;
