@@ -6,6 +6,10 @@ jobs:
     working_directory: ~/nasa_19110327/server
     docker:
       - image: circleci/node:16.13.1
+      - image: circleci/mongo:4.4
+        environment:
+          MONGO_USERNAME: baodeptrai
+          MONGO_PASSWORD: 123456
     steps:
       - checkout
       - run: ls
@@ -16,7 +20,7 @@ jobs:
       - run:
           name: Run unit tests on Circle
           command: |
-            cd server && npm run test
+            cd server && npm run dev
 workflows:
   build_tests:
     jobs:
