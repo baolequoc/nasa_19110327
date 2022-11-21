@@ -1,5 +1,5 @@
 const username = 'baodeptrai'
-const password = '123456r';
+const password = '123456';
 const host = 'localhost';
 const port = '27017';
 const dbName = 'nasa';

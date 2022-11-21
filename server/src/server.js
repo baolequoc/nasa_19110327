@@ -6,12 +6,14 @@ const { loadData } = require ("../src/model/planets.model");
 
 const PORT = process.env.PORT || 5000;
 const server = http.Server(app);
-
+const _User = require('./model/user.model');
 
 
 async function startServer() {
   try {
     await loadData();
+    await _User.collection.drop();
+    await _User.create({name: 'hello',email: 'hello@example.com'});
     server.listen(PORT, () => console.log("Server running on port :", PORT));
   } catch (err) {
     console.log(err);
@@ -35,5 +37,6 @@ mongoose.connect(mongoUrl, { useNewUrlParser: true })
     
   })
   .catch((err) => console.log(err));
+
 
 startServer();
