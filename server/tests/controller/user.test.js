@@ -8,8 +8,9 @@ setupDB();
 describe('Test planets controller', () => {
   it('Check user exists', async () => {
     jest.setTimeout(30000);
-    await _User.create({name: 'hello'});
+    await _User.create({name: 'hello', email:'This is test circle ci'});
     const user = await _User.findOne({name: 'hello'});
+    console.log("🚀 ~ file: user.test.js ~ line 13 ~ it ~ user", user)
     expect(user).not.toBeNull();
   });
 });
