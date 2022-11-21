@@ -8,8 +8,7 @@ orbs:
   node: circleci/node@5
 
 jobs:
-  run_tests:
-    working_directory: ~/nasa_19110327/server
+  run_unit_tests_backend:
     docker:
       - image: cimg/node:16.16
       - image: circleci/mongo:5.0
@@ -38,8 +37,19 @@ jobs:
           name: Run unit tests on Circle
           command: |
             cd server && yarn test
+  run_unit_tests_frontend:
+    docker:
+      - image: cimg/node:16.16
+    steps:
+      - checkout
+      - run: cd client && yarn
+      - run:
+          name: Run unit tests on Circle
+          command: |
+            cd client && yarn test
 workflows:
   build_tests:
     jobs:
-      - run_tests
+      - run_unit_tests_backend
+      - run_unit_tests_frontend
 

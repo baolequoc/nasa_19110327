@@ -4,6 +4,7 @@
 	"private": true,
 	"dependencies": {
 		"arwes": "^1.0.0-alpha.5",
+		"jest": "^26.6.0",
 		"react": "^17.0.1",
 		"react-dom": "^17.0.1",
 		"react-router-dom": "^5.2.0",
@@ -12,7 +13,7 @@
 	"scripts": {
 		"start": "react-scripts start",
 		"build": "rm -rf '../server/public' && react-scripts build && mv build '../server/public' && rm -rf build",
-		"test": "react-scripts test",
+		"test": "jest --no-cache",
 		"eject": "react-scripts eject"
 	},
 	"eslintConfig": {
