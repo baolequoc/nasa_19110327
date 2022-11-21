@@ -31,7 +31,7 @@ jobs:
       - run:
           name: Create database
           command: |
-              mongo --eval "db = db.getSiblingDB('nasa'); db.user.insertMany([{ hello : 'world'}]); db.createUser({ user: 'baodeptrai', pwd: '123456', roles: [{ role: 'readWrite', db: 'nasa' }] });"
+              mongo --eval "db = db.getSiblingDB('nasa'); db.user.insertMany([{ hello : 'world'}]);"
       - run: cd server && yarn
       - run:
           name: Run unit tests on Circle
