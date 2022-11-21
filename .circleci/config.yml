@@ -8,8 +8,9 @@ jobs:
       - image: circleci/node:12-browsers
       - image: circleci/mongo:4.4
         environment:
-          MONGO_USERNAME: 'baodeptrai'
-          MONGO_PASSWORD: '123456'
+          MONGO_USERNAME: baodeptrai
+          MONGO_PASSWORD: 123456
+    
     steps:
       - checkout
       - run:
