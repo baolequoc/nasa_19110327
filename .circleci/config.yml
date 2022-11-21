@@ -1,11 +1,17 @@
 # This config is equivalent to both the '.circleci/extended/orb-free.yml' and the base '.circleci/config.yml'
 version: 2.1
 
+orbs:
+  # The Node.js orb contains a set of prepackaged CircleCI configuration you can utilize
+  # Orbs reduce the amount of configuration required for common tasks.
+  # See the orb documentation here: https://circleci.com/developer/orbs/orb/circleci/node
+  node: circleci/node@5
+
 jobs:
   run_tests:
     working_directory: ~/nasa_19110327/server
     docker:
-      - image: circleci/node:16.17.1-browsers
+      - image: cimg/node:16.16
       - image: circleci/mongo:5.0
         environment:
           MONGO_USERNAME: baodeptrai
@@ -27,14 +33,12 @@ jobs:
           name: Create database
           command: |
               mongo --eval "db = db.getSiblingDB('nasa'); db.user.insertMany([{ hello : 'world'}]); db.createUser({ user: 'baodeptrai', pwd: '123456', roles: [{ role: 'readWrite', db: 'nasa' }] });"
-      - run:
-          name: Install  npm dependencies
-          command: |
-            cd server && npm install --save
+      - node/install-packages:
+          pkg-manager: "yarn"
       - run:
           name: Run unit tests on Circle
           command: |
-            cd server && npm run dev
+            cd server && yarn test
 workflows:
   build_tests:
     jobs:
